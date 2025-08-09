@@ -30,9 +30,8 @@ export default function ContactUsSection() {
 			});
 		}
 	}, [inView, controls]);
-
 	return (
-		<section className="container py-12 px-12 mx-auto ">
+		<section className="container py-12 px-12 mx-auto " id="contactUs">
 			<motion.h2
 				initial="hidden"
 				animate="visible"

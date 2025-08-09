@@ -2,13 +2,14 @@ import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import axiosServices from "../utils/axios";
 import { t, useLang } from "../context/LangContext";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+
 
 const BASE_URL = "https://chemitic.surgi-web.com";
-
 const getFullImage = (img) => (img ? BASE_URL + img : "/no-img.png");
 
 function TeamCard({ img, name, position, bio, i }) {
+	const location=useLocation();
 	return (
 		<motion.div
 			custom={i}
@@ -121,7 +122,7 @@ export default function TeamSection() {
 				</div>
 			) : (
 				<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-28 gap-y-11 justify-items-center">
-					{team.slice(0, 8).map((member, i) => 
+					{team.slice(0,location.pathname==="/"?8:team.length).map((member, i) => 
 						(
 						
 						<TeamCard

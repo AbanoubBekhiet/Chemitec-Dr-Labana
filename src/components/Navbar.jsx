@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { FaBars, FaGlobe } from "react-icons/fa";
 import logo from "../assets/logo.svg";
 import { useLang, LANGS, t } from "../context/LangContext";
+import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 export default function Navbar() {
 	const [openMenu, setOpenMenu] = useState(false);
@@ -14,26 +16,35 @@ export default function Navbar() {
 		setOpenLang(false);
 	};
 
+
 	return (
-		<nav className="w-full text-white py-1 relative z-50">
+		<nav className="w-full text-white py-1  z-50 fixed top-0 left-0" style={{backgroundColor:"white"}}>
 			<div className="container flex items-center justify-between">
 				{/* logo */}
-				<div className="flex  md:w-24 md:h-18 w-18 h-14 items-center">
-					<img src={logo} alt="Chemitec Dr-Labana" className="w-full h-full" />
-				</div>
+				<Link path={"/"}>
+					<div className="flex  md:w-24 md:h-18 w-18 h-14 items-center">
+						<img
+							src={logo}
+							alt="Chemitec Dr-Labana"
+							className="w-full h-full"
+						/>
+					</div>
+				</Link>
 
 				{/* desktop */}
 				<div className="hidden md:flex items-center gap-3">
-					<button className="px-4 py-2 bg-primary text-white rounded">
-						{t(
-							{
-								en: "Contact Us",
-								ar: "اتصل بنا",
-								fr: "Contactez-nous",
-							},
-							lang
-						)}
-					</button>
+					<HashLink smooth to="/#contactUs">
+						<button className="px-4 py-2 bg-primary text-white rounded">
+							{t(
+								{
+									en: "Contact Us",
+									ar: "اتصل بنا",
+									fr: "Contactez-nous",
+								},
+								lang
+							)}
+						</button>
+					</HashLink>
 
 					{/* language dropdown */}
 					<div className="relative z-50">
@@ -67,7 +78,6 @@ export default function Navbar() {
 						)}
 					</div>
 				</div>
-
 				{/* mobile menu button */}
 				<button className="md:hidden" onClick={() => setOpenMenu(!openMenu)}>
 					<FaBars className="text-2xl text-black" />

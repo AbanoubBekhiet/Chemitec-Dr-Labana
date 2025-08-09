@@ -64,8 +64,9 @@ export default function Home() {
 				</h2>
 				<TeamSection />
 			</div>
-			<div className="container  ">
+			<div className="container">
 				<ContactUsSection />
+				
 			</div>
 		</>
 	);
