@@ -23,7 +23,7 @@ export default function IndustriesWeServe() {
 	const navigate = useNavigate();
 
 	function navigateToService(id) {
-		navigate(`service/${id}`);
+		navigate(`industry/${id}`);
 	}
 	// Get industries from API
 	useEffect(() => {

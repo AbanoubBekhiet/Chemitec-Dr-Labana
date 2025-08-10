@@ -26,7 +26,7 @@ const router = createBrowserRouter(
 				}
 			/>
 			<Route
-				path="services"
+				path="service/:id"
 				element={
 					<Suspense fallback={<LoadingSpinner />}>
 						<Services />
@@ -50,7 +50,7 @@ const router = createBrowserRouter(
 				}
 			/>
 			<Route
-				path="service/:id"
+				path="industry/:id"
 				element={
 					<Suspense fallback={<LoadingSpinner />}>
 						<Service />

@@ -201,17 +201,15 @@ export default function InfoSlider() {
 									<p className="font-en font-normal text-[18px] md:text-[20px] leading-[28px] text-text-secondary mb-4">
 										{t(
 											{
-												en: slide.descriptionEn,
-												ar: slide.descriptionAr,
-												fr: slide.descriptionFr,
+												en: JSON.parse(slide.descriptionEn)[0],
+												ar: JSON.parse(slide.descriptionAr)[0],
+												fr: JSON.parse(slide.descriptionFr)[0],
 											},
 											lang
-										) ||
-											slide.description ||
-											""}
+										)}
 									</p>
 									<button
-										onClick={() => navigate("/services")}
+										onClick={() => navigate(`service/${slide.id}`)}
 										className="mt-2 px-5 py-2 bg-white border border-primary text-primary font-poppins rounded transition hover:bg-primary hover:text-white text-[16px] w-fit"
 									>
 										{t(
